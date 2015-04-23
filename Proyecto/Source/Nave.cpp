@@ -46,10 +46,12 @@ void Nave::Disparar(int balas)
 		switch (tipoNave)
 		{
 		case NAVE_PROPIA:
+			bala[balaVisible]->ScaleXYZ(20.f, 20.f, 20.f);
 			bala[balaVisible]->TranslateXY(nave->GetX() + nave->GetW() / 2, nave->GetY());
 			break;
 
 		case NAVE_ENEMIGA:
+			bala[balaVisible]->ScaleXYZ(20.f, 20.f, 20.f);
 			bala[balaVisible]->TranslateXY(nave->GetX() + nave->GetW() / 2, nave->GetY() + nave->GetH());
 			break;
 		}
@@ -70,10 +72,14 @@ void Nave::Draw()
 			switch (tipoNave)
 			{
 			case NAVE_PROPIA:
+				nave->ScaleXYZ(5.f, 5.f, 5.f);
+				nave->TranslateZ(-2.f);
 				bala[i]->MoverArribaAbajo(-10);
 				break;
 
 			case NAVE_ENEMIGA:
+				nave->ScaleXYZ(15.f, 15.f, 15.f);
+				nave->TranslateZ(-2.f);
 				bala[i]->MoverArribaAbajo(10);
 				break;
 			}
