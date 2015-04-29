@@ -9,6 +9,8 @@ CGame::CGame(){
 	tiempoFrameInicial = CERO;
 	tick = CERO;
 	atexit(SDL_Quit);
+	translate_menu= 0.f;
+	translate_jugando = 0.f;
 }
 
 void CGame::IniciandoVideo()
@@ -204,6 +206,10 @@ void CGame::MoverEnemigo(){
 }//Termina MoverEnemigo
 
 void CGame::JugandoPintar(){
+	translate_jugando -= 4;
+	jugandoFondo->TranslateXY(translate_jugando--, 0.f);
+	if (translate_jugando < -600)
+		translate_jugando = 0.f;
 	jugandoFondo->Draw();
 	////////////////////////////////////////
 	//////// CONTROL DE COLISIONES /////////
@@ -320,6 +326,10 @@ void CGame::MenuActualizar()
 
 void CGame::MenuPintar()
 {
+	translate_menu -= 4;
+	menuFondo->TranslateXY(translate_menu--, 0.f);
+	if (translate_menu < -600)
+	 translate_menu = 0.f;
 	menuFondo->Draw();
 	textoTitulo->TranslateXYDraw(WIDTH_SCREEN / 8, 0);
 

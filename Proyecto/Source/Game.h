@@ -67,6 +67,8 @@ private:
 	int tiempoFrameInicial;
 	int tiempoFrameFinal;
 
+	GLfloat translate_jugando;
+	GLfloat translate_menu;
 	Sprite *menuFondo;//Fondo del menu
 	Sprite *textoTitulo;//Textos del juego
 	Sprite *textoNombre;//Textos del juego
